@@ -2,5 +2,152 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "bulmacss-login-page": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/bulmacss-login-page",
+      "sourceRoot": "projects/bulmacss-login-page/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/bulmacss-login-page",
+            "index": "projects/bulmacss-login-page/src/index.html",
+            "main": "projects/bulmacss-login-page/src/main.ts",
+            "polyfills": "projects/bulmacss-login-page/src/polyfills.ts",
+            "tsConfig": "projects/bulmacss-login-page/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/bulmacss-login-page/src/favicon.ico",
+              "projects/bulmacss-login-page/src/assets"
+            ],
+            "styles": [
+              "projects/bulmacss-login-page/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/bulmacss-login-page/src/environments/environment.ts",
+                  "with": "projects/bulmacss-login-page/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "bulmacss-login-page:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "bulmacss-login-page:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "bulmacss-login-page:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bulmacss-login-page/src/test.ts",
+            "polyfills": "projects/bulmacss-login-page/src/polyfills.ts",
+            "tsConfig": "projects/bulmacss-login-page/tsconfig.spec.json",
+            "karmaConfig": "projects/bulmacss-login-page/karma.conf.js",
+            "assets": [
+              "projects/bulmacss-login-page/src/favicon.ico",
+              "projects/bulmacss-login-page/src/assets"
+            ],
+            "styles": [
+              "projects/bulmacss-login-page/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/bulmacss-login-page/tsconfig.app.json",
+              "projects/bulmacss-login-page/tsconfig.spec.json",
+              "projects/bulmacss-login-page/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/bulmacss-login-page/e2e/protractor.conf.js",
+            "devServerTarget": "bulmacss-login-page:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bulmacss-login-page:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": "4c8777ea-7c58-4fcc-8231-7134731069a3"
+  },
+  "defaultProject": "bulmacss-login-page"
 }

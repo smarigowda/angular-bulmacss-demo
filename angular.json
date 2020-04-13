@@ -145,6 +145,149 @@
           }
         }
       }
+    },
+    "bulmacss-navigation-menu": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/bulmacss-navigation-menu",
+      "sourceRoot": "projects/bulmacss-navigation-menu/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/bulmacss-navigation-menu",
+            "index": "projects/bulmacss-navigation-menu/src/index.html",
+            "main": "projects/bulmacss-navigation-menu/src/main.ts",
+            "polyfills": "projects/bulmacss-navigation-menu/src/polyfills.ts",
+            "tsConfig": "projects/bulmacss-navigation-menu/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/bulmacss-navigation-menu/src/favicon.ico",
+              "projects/bulmacss-navigation-menu/src/assets"
+            ],
+            "styles": [
+              "projects/bulmacss-navigation-menu/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/bulmacss-navigation-menu/src/environments/environment.ts",
+                  "with": "projects/bulmacss-navigation-menu/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "bulmacss-navigation-menu:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "bulmacss-navigation-menu:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "bulmacss-navigation-menu:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bulmacss-navigation-menu/src/test.ts",
+            "polyfills": "projects/bulmacss-navigation-menu/src/polyfills.ts",
+            "tsConfig": "projects/bulmacss-navigation-menu/tsconfig.spec.json",
+            "karmaConfig": "projects/bulmacss-navigation-menu/karma.conf.js",
+            "assets": [
+              "projects/bulmacss-navigation-menu/src/favicon.ico",
+              "projects/bulmacss-navigation-menu/src/assets"
+            ],
+            "styles": [
+              "projects/bulmacss-navigation-menu/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/bulmacss-navigation-menu/tsconfig.app.json",
+              "projects/bulmacss-navigation-menu/tsconfig.spec.json",
+              "projects/bulmacss-navigation-menu/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/bulmacss-navigation-menu/e2e/protractor.conf.js",
+            "devServerTarget": "bulmacss-navigation-menu:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bulmacss-navigation-menu:serve:production"
+            }
+          }
+        }
+      }
     }},
   "cli": {
     "analytics": "4c8777ea-7c58-4fcc-8231-7134731069a3"
